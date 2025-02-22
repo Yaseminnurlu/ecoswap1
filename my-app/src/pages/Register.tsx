@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Avatar,
     Box,
@@ -10,32 +10,30 @@ import {
     Typography,
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
-import { useState } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
-
 
 const Register = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleRegister = async () => {
         try {
-        const response = await axios.post('http://localhost:5002/api/auth/register', {
-            username: name,
-            email,
-            password,
-        });
-        console.log(response.data); // Message from backend on success
-        alert("Registration successful!");
-        navigate('/login');
-    } catch (error) {
-        console.error(error);
-        alert("Registration failed.");
-    }
-};
+            const response = await axios.post('http://localhost:5002/api/auth/register', {
+                username: name,
+                email,
+                password,
+            });
+            console.log(response.data); // Message from backend on success
+            alert("Registration successful!");
+            navigate('/login');
+        } catch (error) {
+            console.error("Error during registration:", error);
+            alert("Registration failed: " + error.response?.data?.message || error.message);
+        }
+    };
 
     return (
         <>
