@@ -5,6 +5,7 @@ import Login from './pages/Login'; // Import Login Component
 import Register from './pages/Register'; // Import Register Component
 import Account from './pages/Account';
 import Search from './pages/Search';
+import NewAdPage from './pages/NewAdPage'; // Import your new page
 
 
 
@@ -41,6 +42,7 @@ function MainContent() {
         <Route path="/login" element={<Login />} />
         <Route path = "/account" element={<Account/>}/>
         <Route path = "/search" element={<Search/>}/>
+        <Route path="/new-post" element={<NewAdPage />} /> {/* New route */}
         <Route path="*" element={<Register />} />
       </Routes>
     </div>
