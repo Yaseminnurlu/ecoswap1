@@ -3,6 +3,10 @@ import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
 import HomePage from './pages/Home.tsx'; // Import Home Component
 import Login from './pages/Login'; // Import Login Component
 import Register from './pages/Register'; // Import Register Component
+import Account from './pages/Account';
+import Search from './pages/Search';
+
+
 
 function MainContent() {
   const location = useLocation();
@@ -35,6 +39,8 @@ function MainContent() {
       <Routes>
         <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
+        <Route path = "/account" element={<Account/>}/>
+        <Route path = "/search" element={<Search/>}/>
         <Route path="*" element={<Register />} />
       </Routes>
     </div>
